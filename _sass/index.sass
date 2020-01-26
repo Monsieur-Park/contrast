@@ -1,21 +1,20 @@
-$font-size: calc(0.8rem + 0.25vw) !default
+$font-size: calc(0.8em + 0.25vw) !default
 $font-weight: 400 !default
-$line-height: 1.6 !default
+$heading-weight: inherit !default
+$line-height: 1.65 !default
 $link-color: #68f !default
-$dark: #18191d !default
+$dark: #282828 !default
 $light: #ffffff !default
 
 @function reduce ($percent)
   @return rgba(mix($dark, $light), $percent / 100)
 
-@media (prefers-color-scheme: light)
-  html
-    background: $light
-    color: $dark
+@import basic, highlight, layout, darkmode
 
-@media (prefers-color-scheme: dark)
-  html
-    background: $dark
-    color: $light
+.light
+  background: $light
+  color: $dark
 
-@import basic, highlight, layout
+.dark
+  background: $dark
+  color: $light
