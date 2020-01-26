@@ -1,50 +1,91 @@
 ---
 ---
 
-@import index
+body
+  display: flex
+  min-height: 100vh
 
-@media (min-width: 60em)
-  body
-    font-size: 18px
+nav
+  margin: 0.5em -0.8em
 
-body > header, body > article, body > footer
-  padding: 1.5em
+nav a
+  display: inline-flex
+  align-items: center
+  padding: 0 0.8em
 
-@media (min-width: 32em)
-  body > header, body > article, body > footer
-    padding: 1.5em calc(38% - 12em)
+nav svg, footer svg
+  height: 1em
+  width: 1em
+  fill: currentColor
 
-{% if site.dark_header %}
-
-body > header
-  background: lighten($dark, 1%)
-  color: #fff
-  border-bottom: 1px solid rgba($light, 0.05)
-
-{% else %}
-
-body > header
-  background: rgba($light, 0.01)
-  box-shadow: {% if site.minimal %}none{% else %}0 0 .6em rgba($dark, 0.06){% endif %}
-  border-bottom: 1px solid reduce(16)
-
-{% endif %}
-
-{% if site.sidebar or site.hide_title %}
+table
+  width: 100%
 
 header h1
-  font-size: 2em
+  margin: 0
+
+h1
+  font-size: 1.7em
+
+{% if site.navigation and site.icons %}
+
+body > header h1
+  width: 100%
+  margin-top: 0.1em
+  margin-bottom: 0.5em
 
 {% else %}
 
-h1, h2, h3, h4, h5, h6
+body > header h1
+  font-size: 1.6em
+
+{% endif %}
+
+article header
+  display: block
+  margin-bottom: 1.5em
+
+article header h1
+  font-size: 1.85em
+  margin-bottom: 0.2em
+
+article footer
+  padding: 1em 0
+
+.icon
+  padding: 0 1em
+
+.icon svg
+  font-size: 1.1em
+
+.archive div
+  display: flex
+  flex-wrap: wrap
+  align-items: baseline
+
+.archive h3
+  margin: 0.2em 0
+
+.archive h3, .archive a
   font-weight: inherit
 
-{% endif %}
+.archive time
+  min-width: 10em
 
-{% if site.show_excerpts %}
+.large img, .large.embed
+  max-width: 140%
+  margin-right: -20%
+  margin-left: -20%
 
-article:not(:last-child)
-  border-bottom: 1px solid reduce(10)
+.embed
+  position: relative
+  padding-bottom: 56.25%
+  margin: 1.5em 0
 
-{% endif %}
+.embed.large
+  padding-bottom: 78.75%
+
+.embed iframe
+  position: absolute
+  width: 100%
+  height: 100%
