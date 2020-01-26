@@ -1,26 +1,33 @@
 body
-  font-family: "PT Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif
+  font-size: 16px
   font-size: $font-size
   font-weight: $font-weight
   line-height: $line-height
-  margin: 0
-  -webkit-text-size-adjust: 100%
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-h1
-  font-size: 1.75em
-
-b, strong, th
-  font-weight: $font-weight + 200
+body, blockquote, figure
+  margin: 0
 
 a
-  color: $link-color
+  color: inherit
   text-decoration: inherit
-  &:hover
-    text-decoration: underline
+  transition: color .2s
+  &.selected, &:hover
+    color: reduce(100)
 
-header a, footer a
+article a, b, strong, th
+  font-weight: $font-weight + 100
+
+h1, h2, h3, h4, h5, h6
+  font-weight: $heading-weight
+
+article a
+  color: $link-color
+
+article header a, article footer a
+  font-weight: inherit
   color: inherit
 
 header time
@@ -31,49 +38,43 @@ hr
   margin: 2em 0
 
 blockquote
-  background: reduce(4)
-  border-left: 3px solid reduce(70)
-  padding: 1px 1.5em
-
-blockquote p
-  opacity: .7
-
-blockquote, figure
-  margin: 1em 0
-
-img, li
-  margin: .5em 0
+  border-left: 4px solid $link-color
+  padding-left: 1.5em
 
 img
   border-radius: 2px
   max-width: 100%
   height: auto
+  margin: .5em 0
 
 table
-  width: 100%
-  border-collapse: collapse
+  border-spacing: 1px
+  box-shadow: 0px 0px 0px 1px reduce(16) inset
+
+tr:hover, tr:nth-child(even) td
+  background: reduce(6)
+
+th
+  background: reduce(10)
+  text-align: inherit
 
 th, td
+  box-shadow: 0px 0px 0px 1px reduce(16)
   padding: .5em 1em
 
-tr
-  border: 1px solid reduce(20)
-
-tr:hover, tr:nth-child(odd) td
-  background: reduce(4)
-
 pre
-  background: reduce(12)
+  background: rgba(38, 38, 38, 0.8)
+  color: white
   border-radius: 2px
   font-size: .8em
   margin: 1.5em 0
   padding: .8em 1.2em
-  overflow-x: auto
+  white-space: pre-wrap
 
-\:not(pre) > code
-  font-size: .9em
+p code
   background: reduce(15)
-  opacity: .7
+  opacity: .75
   border-radius: 2px
+  font-size: .9em
   margin: 0 .1em
   padding: .2em .4em
