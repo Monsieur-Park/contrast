@@ -6,26 +6,41 @@ lang: "en"
 
 remote_theme: niklasbuschmann/contrast
 
-sidebar: true                # show a sidebar instead of the usual header
-show_excerpts: false         # show article excerpts on the home page
-dark_header: false           # keep the top-header dark
-hide_title: false            # hide the site title in the header
-minimal: false               # minima-inspired style without box-shadows
+# Page settings
+permalink: /:title/          # see https://jekyllrb.com/docs/permalinks/
+date_format: "%B %d, %Y"     # see http://shopify.github.io/liquid/filters/date/
+paginate: 2                 # use "layout: paginate" in the index.html to enable pagination
+
+# Theme settings
+hide_title: false            # remove site heading in the header
+hide_footer: false           # hide the "previous" and "next" links at the end of each post
+dark_theme: true            # use the dark mode as default
+dark_header: false           # keep the header dark
+dark_footer: false           # keep the footer dark
+# style: minimal             # use a simpler style inspired by the minima theme
+
+navigation:                  # site navigation in the header
+  - index.html
+  - README.md
+  - archive.md
+#  - title: "https://"       # linking external sites is also supported
+
 
 # see http://fontawesome.com/icons for icons
 
-navigation:
-  - {file: "index.html", icon: home}
-  - {file: "README.md", icon: address-card}
-
-external:
-  - {title: Mail, icon: envelope, url: "mailto:runtonky@gmail.com"}
-  - {title: Github, icon: github, url: "https://github.com/Monsieur-Park"}
-  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+icons:                       # (optional) fontawesome icons in the header
+  envelope: "mailto:runtonky@gmail.com"
+  github: "https://github.com/Monsieur-Park"
+#  linkedin: "https://linkedin.com/in/seoklee"
 
 comments:                    # embed disqus or isso comments
 #  disqus: ""
 #  isso: ""
 
-plugins:
+plugins: 
  - jekyll-feed
+ - jekyll-paginate
+ - jekyll-default-layout
+ - jekyll-remote-theme
+
+theme: jekyll-theme-modernist
